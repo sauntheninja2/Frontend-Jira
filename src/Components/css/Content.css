@@ -1,0 +1,57 @@
+.container{
+    box-sizing: border-box;
+    display:flex;
+    width: 1200px;
+    height: 520px;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.firstCard{
+    display: flex;
+    width: 200px;
+    height: 450px;
+    padding: 10px;
+    margin:10px;
+    border: 1px solid black;
+    background: #eee;
+    box-shadow: 0 8px 8px -4px lightblue;
+}
+
+.secondCard{
+    display: flex;
+    width: 200px;
+    height: 450px;
+    padding: 10px;
+    margin:10px;
+    border: 1px solid black;
+    background: #eee;
+    box-shadow: 0 8px 8px -4px lightblue;
+}
+
+.thirdCard{
+    display: flex;
+    width: 200px;
+    height: 450px;
+    padding: 10px;
+    margin:10px;
+    border: 1px solid black;
+    background: #eee;
+    box-shadow: 0 8px 8px -4px lightblue;
+}
+
+.fourthCard{
+    display: flex;
+    width: 200px;
+    height: 450px;
+    padding: 10px;
+    margin:10px;
+    border: 1px solid black;
+    background: #eee;
+   box-shadow: 0 8px 8px -4px lightblue;
+}
+
+
