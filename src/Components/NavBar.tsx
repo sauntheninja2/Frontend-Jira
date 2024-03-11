@@ -55,22 +55,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
 
+
+
   const [showModal , setShowModal] = useState(false);
   const navigate = useNavigate()
 const handleRedirect = () => {
   navigate('GetAllTickets')
 }
   
-
-
-  
-
   return (
     <Box sx={{ flexGrow: 3 }}>
       <AppBar position="absolute">
         <Toolbar sx={{justifyContent: "space-between"}}variant='dense'>
           <Drawer />
-          <Button color="inherit" onClick={()=> setShowModal(true)}>Create</Button>
+          <Button color="inherit"  onClick={()=> setShowModal(true)}>  Create</Button>
           {showModal && createPortal(
             <Card /> , document.body
           )}

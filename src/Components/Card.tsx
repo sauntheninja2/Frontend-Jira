@@ -5,16 +5,14 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material';
+import { Center, Flex } from '@chakra-ui/react';
+import './css/Card.css'
 
 
-const bull = (
-    <Box
-    component="span"
-    sx={{ display: 'inline-block' , mx: '2px' , transform: 'scale(0.8)'}}
-    >
-        . 
-    </Box>
-);
+
+
+
 
 const card = (
     <React.Fragment>
@@ -30,6 +28,10 @@ const card = (
                             <p>Description</p>
                             <input name="description" />
                         </label>
+                        <label>
+                            <p>Assigned To</p>
+                            <input name="Assigned To" />
+                        </label>
                     </fieldset>
                     <button type="submit">Submit</button>
                 </form>
@@ -42,7 +44,7 @@ const card = (
 export default function OutlinedCard(){
     return (
         <Box>
-            <Card style={{marginTop: '5em'}} variant='outlined'>{card}</Card>
+            <Card style={{position: 'absolute',zIndex: 1 , top:120,left:500}}>{card}</Card>
         </Box>
     );
 }

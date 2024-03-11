@@ -8,6 +8,8 @@ import {  BrowserRouter , Routes , Route } from 'react-router-dom';
 import AllIssues from './Components/AllIssues';
 import { Switch } from '@chakra-ui/react';
 import TemporaryDrawer from './Components/Drawer'
+import { Card } from '@mui/material';
+import Pages from './Pages/Layout';
 
 
 
@@ -18,12 +20,10 @@ function App() {
     <BrowserRouter>
     <Routes>
     <Route>
-    </Route>
+    </Route>  
     <Route path="/allIssues" element={<AllIssues />} />
     </Routes>
-    <ContainedButtons />
-    <Content />
-    <SearchAppBar />
+    <Pages />
     </BrowserRouter>
   )
 }
