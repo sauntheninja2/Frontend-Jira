@@ -1,0 +1,28 @@
+
+#whole-page-container {
+
+    box-sizing: border-box;
+    display: flex;
+
+}
+
+
+#all-issues-container {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 2px;
+    height: 500px;
+    width: 350px;
+    top: 150px;
+    left: 100px;
+    
+}
+
+#all-issue-text {
+    position: absolute;
+    height: 500px;
+    left: 190px;
+    top: 100px;
+}

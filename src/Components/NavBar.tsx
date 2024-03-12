@@ -14,6 +14,9 @@ import { createPortal } from 'react-dom';
 import { ModalContent } from '@chakra-ui/react';
 import {Routes , Route , useNavigate , Link} from 'react-router-dom';
 import getAllTickets from './GetAllTickets';
+import { TextField } from '@mui/material';
+import SprintLayout from '../Pages/SprintLayout';
+import Individual_card from './Individual_Card';
 
 
 
@@ -62,9 +65,23 @@ export default function SearchAppBar() {
 const handleRedirect = () => {
   navigate('GetAllTickets')
 }
+
+const [showSprintLayout , setSprintShowModal] = useState(false);
+const navigateToSprint = useNavigate()
+const handleRedirectToSprint = () => {
+  navigate('SprintLayout')
+
+}
+
+const [showCard , setCardShowModal] = useState(false);
+const navigateToCard = useNavigate()
+const handleRedirectCard = () => {
+  navigate('Individual_Card')
+
+}
   
   return (
-    <Box sx={{ flexGrow: 3 }}>
+    <Box sx={{ flexGrow: 5 }}>
       <AppBar position="absolute">
         <Toolbar sx={{justifyContent: "space-between"}}variant='dense'>
           <Drawer />
@@ -72,8 +89,16 @@ const handleRedirect = () => {
           {showModal && createPortal(
             <Card /> , document.body
           )}
-          <Button color="inherit" onClick={handleRedirect}>Open Issues</Button>
+          <Button color="inherit" onClick={() => {setSprintShowModal(false) ; setCardShowModal(true)}}>Open Issues</Button>
+          {showCard && createPortal(
+            <Individual_card /> , document.body
+          )}
           <Button color="inherit">Login</Button>
+          <Button color="inherit" sx={{flex:"start"}} onClick={() => {setCardShowModal(false) ; setSprintShowModal(true)}}>Sprint</Button>
+          {showSprintLayout && createPortal(
+            <SprintLayout />,document.body
+          )}
+          <TextField id="search" sx={{backgroundColor: 'white'}} label="Search" variant="outlined" size='small'></TextField>
         </Toolbar>
       </AppBar>
     </Box>

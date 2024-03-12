@@ -11,7 +11,6 @@ export default function Layout ()
     return(
         <div>
             <SearchAppBar />
-            <Individual_card />
         </div>
 
     )

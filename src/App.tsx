@@ -10,6 +10,9 @@ import { Switch } from '@chakra-ui/react';
 import TemporaryDrawer from './Components/Drawer'
 import { Card } from '@mui/material';
 import Pages from './Pages/Layout';
+import SprintLayout from './Pages/SprintLayout';
+
+
 
 
 
@@ -22,6 +25,7 @@ function App() {
     <Route>
     </Route>  
     <Route path="/allIssues" element={<AllIssues />} />
+    <Route path="/sprint" element={<SprintLayout />} />
     </Routes>
     <Pages />
     </BrowserRouter>

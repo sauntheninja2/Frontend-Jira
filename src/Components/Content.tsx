@@ -15,14 +15,6 @@ interface DroppedItem {
     top: number;
 }
 
-
-
-    
-
-    
-
-
-
 export default function Content(){
     const cardId = "card";
     const dropFunction = (item,monitor: DropTargetMonitor,setDroppedItems: React.Dispatch<React.SetStateAction<DroppedItem[]>>,droppedItems: DroppedItem[]) => {
