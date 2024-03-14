@@ -4,10 +4,33 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { styled } from "@mui/system";
 import { TextareaAutosize } from '@mui/base';
+import axios from "axios";
+import {useEffect , useState} from 'react';
+import { useParams } from "react-router-dom";
 
 
 
 export default function Individual_card() {
+
+  const [loading ,setLoading]  = useState(true);
+  const [data , setData] = useState([])
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+
+      try {
+        const {data: response} = await axios.get(`http://localhost:8080/tickets/3`);
+        setData(response); 
+      }catch (error) {
+        console.error('error')
+      }
+      setLoading(false);
+    }
+
+    fetchData();
+  }, []);
 
     const blue = {
         100: '#DAECFF',
@@ -34,7 +57,7 @@ export default function Individual_card() {
       const Textarea = styled(TextareaAutosize)(
         ({ theme }) => `
         box-sizing: border-box;
-        width: 100%x;
+        width: 50%;
         font-family: 'IBM Plex Sans', sans-serif;
         font-size: 0.875rem;
         font-weight: 400;
@@ -61,36 +84,25 @@ export default function Individual_card() {
         }
       `,
       );
-    
-
 
     return (
         <div id="container">
             <div id="project-image"></div>
-            <text id="title">Test Ticket </text>
+            <div id="title">{data.title}</div>
             <div id="button-row">
                 <Stack spacing={5} direction="row">
                     <Button variant="outlined">Edit</Button>
                     <Button variant="outlined">Assign</Button>
                     <Button variant="outlined">Comment</Button>
                     <Button variant="outlined">Progress</Button>
-                </Stack>
-            <text id="assignee">Assignee:</text>
+                </Stack></div>
+            <text id="assignee">Assignee</text>
             <span id="assignee-profile-pic"></span>
             <text id="assigned">Unassigned</text>
-            </div>
             <p id="description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-             standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-              a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
-              remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-               Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              {data.description}
             </p>
-            <text id="comments">Comments</text>
-            <Textarea id="comments-area" aria-label="minimum height" minRows={2} placeholder="Add a comment" />
-            <Stack spacing={1} direction="row">
-                <Button id="comment-submit" variant="outlined">Submit</Button>
-            </Stack>
+            <Textarea id="comments-area" aria-label="minimum height" minRows={2}  placeholder="Add a comment" />
         </div>
     )
 }
