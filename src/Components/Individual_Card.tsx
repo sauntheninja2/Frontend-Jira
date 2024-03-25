@@ -10,10 +10,11 @@ import { useParams } from "react-router-dom";
 
 
 
+
 export default function Individual_card() {
 
   const [loading ,setLoading]  = useState(true);
-  const [data , setData] = useState([])
+  const [data , setData] = useState<any[]>([])
 
 
   useEffect(() => {
