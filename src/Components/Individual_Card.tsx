@@ -7,14 +7,20 @@ import { TextareaAutosize } from '@mui/base';
 import axios from "axios";
 import {useEffect , useState} from 'react';
 import { useParams } from "react-router-dom";
+import  CheckBox from '@mui/material/Checkbox';
 
-
+interface Data {
+  title: string,
+  description: string
+}
 
 
 export default function Individual_card() {
 
+  const label = {inputProps: {'aria-label': 'Approval Required'}}
+
   const [loading ,setLoading]  = useState(true);
-  const [data , setData] = useState<any[]>([])
+  const [Data , setData] = useState<any[]>([])
 
 
   useEffect(() => {
@@ -89,7 +95,7 @@ export default function Individual_card() {
     return (
         <div id="container">
             <div id="project-image"></div>
-            <div id="title">{data.title}</div>
+            <div id="title">{Data.title}</div>
             <div id="button-row">
                 <Stack spacing={5} direction="row">
                     <Button variant="outlined">Edit</Button>
@@ -100,10 +106,15 @@ export default function Individual_card() {
             <text id="assignee">Assignee</text>
             <span id="assignee-profile-pic"></span>
             <text id="assigned">Unassigned</text>
+            <text id="approval-required">Approval Required</text>
+            <div id="approved">
+            <CheckBox {...label}/>
+            </div>
             <p id="description">
-              {data.description}
+              {Data.description}
             </p>
             <Textarea id="comments-area" aria-label="minimum height" minRows={2}  placeholder="Add a comment" />
         </div>
+        
     )
 }
